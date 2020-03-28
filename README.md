@@ -1,9 +1,8 @@
 # Physics Simulations
 
   * Motion in 1D
+    * Ball in Free Fall -- ✅
     * Landing a rocket
-    * Ranking task - rank by acceleration
-    * Galileo's ramp (with sound)
     * Relative velocity: race on a moving sidewalk
   
   * Motion in 2D
@@ -33,5 +32,8 @@
     * Pendulum -- ✅
     * Double Pendulum -- ✅
     * Spring Pendulum -- ✅
-    * Pendulum - with Damping
+    * Pendulum - with Damping -- ✅
     * Spring Wave
+  
+  * Experiments
+    * Havana Song Synth -- ✅
