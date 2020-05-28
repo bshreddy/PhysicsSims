@@ -37,3 +37,6 @@
   
   * Experiments
     * Havana Song Synth -- ✅
+  
+  * Renderings
+    * Mandelbrot Set -- Pan & Zoom remaining
