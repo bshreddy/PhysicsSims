@@ -121,37 +121,27 @@ class ViewController: NSViewController, MTKViewDelegate {
     func updateParameters(_ view: View) {
         let heldKeys = view.heldKeys
                 
-        if heldKeys[12] ?? false || heldKeys[14] ?? false { // Q
+        if heldKeys[12] ?? false || heldKeys[14] ?? false { // Q (zoom out) and E (zoom in)
             let scaleXBy: Float = (heldKeys[12] ?? false) ? 1.01 : 0.99
             let scaleYBy: Float = (heldKeys[12] ?? false) ? 1.01 : 0.99
-            
-//            let dpiX = view.drawableSize.width / view.frame.size.width
-//            let dpiY = view.drawableSize.height / view.frame.size.height
-//            let mosPos = view.window?.mouseLocationOutsideOfEventStream ?? NSPoint(x: Double(view.parameters.width) / 2.0,
-//                                                                                   y: Double(view.parameters.height) / 2.0)
-//            let mosPosX = max(0, min(view.parameters.width, Float(mosPos.x * dpiX)))
-//            let mosPosY = max(0, min(view.parameters.height, view.parameters.height - Float(mosPos.y * dpiY)))
 
             view.parameters.scaleX *= scaleXBy
             view.parameters.scaleY *= scaleYBy
-//            view.parameters.panX -= (mosPosX - view.parameters.width / 2.0) * (1 - scaleXBy)
-//            view.parameters.panX -= (mosPosY - view.parameters.height / 2.0) * (1 - scaleYBy)
         }
         
-        if heldKeys[13] ?? false { // W
-            view.parameters.panY += 100
+        if heldKeys[13] ?? false || heldKeys[01] ?? false { // W and S
+            view.parameters.panY += 100 * ((heldKeys[13] ?? false) ? 1 : -1)
         }
         
-        if heldKeys[01] ?? false { // S
-            view.parameters.panY -= 100
+        if heldKeys[00] ?? false || heldKeys[02] ?? false { // A and D
+            view.parameters.panX += 100 * ((heldKeys[00] ?? false) ? 1 : -1)
         }
         
-        if heldKeys[00] ?? false { // A
-            view.parameters.panX += 100
-        }
-        
-        if heldKeys[02] ?? false { // D
-            view.parameters.panX -= 100
+        if heldKeys[15] ?? false { // R
+            view.parameters = Parameters(size: mtkView.drawableSize,
+                                         scale: (x: 0.002, y: 0.002),
+                                         pan: (dx: 0, dy: 0),
+                                         maxIterations: 64)
         }
     }
     
